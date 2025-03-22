@@ -46,7 +46,16 @@ pip install -r requirements.txt
 
 ## Model Weights
 
-Due to file size restrictions, the trained model weights (best_swin_upernet_main.pth) are not included in this repository. To run the API, please download the weights separately and place the file in the root directory.
+To run the API, you will need to download the pretrained model weights and place the file in the root directory of this repository.
+
+**Download link:**
+
+[best_swin_upernet_main.pth](https://huggingface.co/samyakshrestha/swin-medical-segmentation/resolve/main/best_swin_upernet_main.pth?download=true)
+
+After downloading, ensure the file is named exactly "best_swin_upernet_main.pth" and saved in the same directory as `main.py` and `model.py`.
+
+This weight file contains the Swin-Tiny UPerNet model trained on the ISIC 2018 skin lesion segmentation dataset.
+
 
 ## Dataset
 
