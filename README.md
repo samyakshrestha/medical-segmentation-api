@@ -1,33 +1,33 @@
-# Medical Segmentation API with Uncertainty Estimation
+# Skin Lesion Segmentation API with Uncertainty Estimation
 
-This repository contains a production-ready FastAPI service for performing semantic segmentation on medical images using a Swin-Tiny UPerNet architecture. The model includes Monte Carlo (MC) Dropout at inference time to estimate predictive uncertainty.
+This repository contains a production-ready FastAPI service for performing semantic segmentation of skin lesions, trained on the ISIC 2018 dataset. The segmentation model uses a Swin-Tiny transformer encoder with a custom UPerNet decoder, and incorporates Monte Carlo (MC) Dropout at inference time to estimate predictive uncertainty.
 
 ## Features
 
-- FastAPI backend with a RESTful endpoint for image segmentation
-- Swin-Tiny transformer encoder with custom UPerNet decoder
-- Monte Carlo Dropout for uncertainty quantification
-- Uncertainty map visualization using OpenCV colormaps
-- Side-by-side output of predicted mask and uncertainty heatmap
-- Modular and well-documented codebase for easy extension and deployment
+- RESTful FastAPI endpoint for real-time image segmentation
+- Swin-Tiny + UPerNet architecture for accurate lesion boundary detection
+- Monte Carlo Dropout-based uncertainty quantification
+- Heatmap visualization of model uncertainty using OpenCV colormaps
+- Side-by-side output of the predicted segmentation mask and uncertainty map
+- Clean, modular codebase suitable for further extension and deployment
 
 ## Inference Workflow
 
-1. The API accepts an image uploaded via a POST request to the `/predict/` endpoint.
-2. The image is preprocessed and passed through the segmentation model.
+1. The API accepts a dermoscopic image uploaded via a POST request to the `/predict/` endpoint.
+2. The image is resized, normalized, and passed through the segmentation model.
 3. The model performs multiple stochastic forward passes using MC Dropout.
-4. The mean prediction is thresholded to produce a binary mask.
-5. The standard deviation across predictions is visualized as an uncertainty heatmap.
-6. The binary mask and heatmap are returned as a combined PNG image.
+4. The mean prediction is binarized to produce a segmentation mask.
+5. The standard deviation across predictions is visualized as a heatmap to express uncertainty.
+6. The API returns both the binary mask and uncertainty heatmap as a combined PNG image.
 
 ## File Structure
 
 | File              | Description                                                  |
 |-------------------|--------------------------------------------------------------|
-| `main.py`         | FastAPI application and inference logic                      |
-| `model.py`        | Swin-Tiny + UPerNet model architecture and utility functions |
-| `requirements.txt`| List of required Python packages                             |
-| `.gitignore`      | Specifies files and directories to be ignored by Git         |
+| `main.py`         | FastAPI application and endpoint logic                       |
+| `model.py`        | Model architecture and MC Dropout inference utilities        |
+| `requirements.txt`| Required Python packages                                     |
+| `.gitignore`      | Specifies ignored files (e.g., `venv/`, model weights)       |
 
 ## Requirements
 
@@ -40,10 +40,20 @@ This repository contains a production-ready FastAPI service for performing seman
 - torchvision
 - uvicorn
 
-To install dependencies:
+Install dependencies:
 
 pip install -r requirements.txt
 
+## Model Weights
+
+Due to file size restrictions, the trained model weights (best_swin_upernet_main.pth) are not included in this repository. To run the API, please download the weights separately and place the file in the root directory.
+
+## Dataset
+
+This project uses the ISIC 2018 Challenge Dataset for training, which contains dermoscopic images of skin lesions annotated for binary segmentation.
+
+Dataset access: https://challenge.isic-archive.com/data/
+
 ## Author
 
-Samyak Shrestha
+Samyak Shrestha 
