@@ -1,0 +1,9 @@
+# Ignore virtual environment
+venv/
+__pycache__/
+
+# Ignore model weights (GitHub has a 100MB limit)
+*.pth
+
+# Ignore system files
+.DS_Store
