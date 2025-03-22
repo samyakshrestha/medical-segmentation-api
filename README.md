@@ -42,5 +42,8 @@ This repository contains a production-ready FastAPI service for performing seman
 
 To install dependencies:
 
-```bash
 pip install -r requirements.txt
+
+## Author
+
+Developed by Samyak Shrestha
