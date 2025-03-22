@@ -46,4 +46,4 @@ pip install -r requirements.txt
 
 ## Author
 
-Developed by Samyak Shrestha
+Samyak Shrestha
