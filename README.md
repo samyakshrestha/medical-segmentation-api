@@ -63,6 +63,21 @@ This project uses the ISIC 2018 Challenge Dataset for training, which contains d
 
 Dataset access: https://challenge.isic-archive.com/data/
 
+## Docker Support
+
+This project includes a `Dockerfile` for containerized deployment.
+
+### 🧪 Run the API with Docker:
+
+# Build the Docker image
+docker build -t medical-segmentation-api .
+
+# Run the container
+docker run -p 8000:8000 medical-segmentation-api
+
+The API will then be available at:
+http://localhost:8000/predict/
+
 ## Author
 
 Samyak Shrestha 
