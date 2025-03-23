@@ -42,7 +42,10 @@ This repository contains a production-ready FastAPI service for performing seman
 
 Install dependencies:
 
+```bash
 pip install -r requirements.txt
+```
+
 
 ## Model Weights
 
@@ -68,10 +71,15 @@ Dataset access: https://challenge.isic-archive.com/data/
 This project includes a `Dockerfile` for containerized deployment. Run the API with Docker:
 
 ### Build the Docker image
+```bash
 docker build -t medical-segmentation-api .
+```
 
 ### Run the container
+```bash
 docker run -p 8000:8000 medical-segmentation-api
+```
+
 
 The API will then be available at:
 http://localhost:8000/predict/
